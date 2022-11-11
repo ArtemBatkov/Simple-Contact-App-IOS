@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Contacts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Simple_Contact_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,13 +40,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Wf8-EI-7PG" secondAttribute="bottom" id="kXg-Ml-KOc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Contacts" id="Pbb-5J-TyO"/>
                     <connections>
                         <outlet property="tableView" destination="Wf8-EI-7PG" id="gLs-fE-ID7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21" y="4"/>
+            <point key="canvasLocation" x="947.32824427480909" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
