@@ -14,6 +14,7 @@
 		CC6059C2291E2333003FFDF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC6059C0291E2333003FFDF3 /* Main.storyboard */; };
 		CC6059C4291E2334003FFDF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC6059C3291E2334003FFDF3 /* Assets.xcassets */; };
 		CC6059C7291E2334003FFDF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC6059C5291E2334003FFDF3 /* LaunchScreen.storyboard */; };
+		CC77B68229326A240093C708 /* CellUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC77B68129326A240093C708 /* CellUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		CC6059C3291E2334003FFDF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC6059C6291E2334003FFDF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC6059C8291E2334003FFDF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC77B68129326A240093C708 /* CellUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellUIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		CC6059B9291E2333003FFDF3 /* Simple Contact App */ = {
 			isa = PBXGroup;
 			children = (
+				CC77B68129326A240093C708 /* CellUIViewController.swift */,
 				CC6059BA291E2333003FFDF3 /* AppDelegate.swift */,
 				CC6059BC291E2333003FFDF3 /* SceneDelegate.swift */,
 				CC6059BE291E2333003FFDF3 /* ViewController.swift */,
@@ -148,6 +151,7 @@
 			files = (
 				CC6059BF291E2333003FFDF3 /* ViewController.swift in Sources */,
 				CC6059BB291E2333003FFDF3 /* AppDelegate.swift in Sources */,
+				CC77B68229326A240093C708 /* CellUIViewController.swift in Sources */,
 				CC6059BD291E2333003FFDF3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

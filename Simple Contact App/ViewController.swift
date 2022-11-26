@@ -34,7 +34,6 @@ class ViewController: UIViewController {
         InitializeContacts()
         //call fake data contacts -- end
         
-        
         //tableview initialization -- start
         tableView.delegate = self
         tableView.dataSource = self
@@ -54,8 +53,16 @@ class ViewController: UIViewController {
         for i in 0...99{
             names.append((faker.name.firstName() + "  " + faker.name.lastName()))
         }
+        
     }
    
+    func DeleteContact(_contact_name: String){
+        let first_letter = String(_contact_name.prefix(1))
+        ContactsDict.removeValue(forKey: first_letter)
+        if(tableView != nil){
+            tableView.reloadData()
+        }
+    }
     
 
 }
@@ -69,10 +76,20 @@ extension ViewController: UITableViewDelegate{
     
     
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print("you tapped me!")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let vc = storyboard?.instantiateViewController(identifier: "CellUIViewController") as? CellUIViewController{
+            
+            let SectionName = sectionTitle[indexPath.section]
+            var ContactsInSection =  ContactsDict[SectionName]
+            ContactsInSection?.sorted()
+            
+            vc.ContactPhone = "todo phone        section #\(indexPath.section)  row# \(indexPath.row)"
+            vc.ContactName = ContactsInSection![indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        print("you tapped me")
     }
-    
+   
     
 }
 
