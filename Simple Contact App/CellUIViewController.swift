@@ -7,8 +7,19 @@
 
 import UIKit
 
+protocol DeleteContactDelegate{
+    func deleteContact(contact:Contact, indexPath: IndexPath)
+}
+
+protocol CancelDelegate{
+    func cancelAndsaveChanges(contact: Contact, indexPath: IndexPath)
+}
+
+
 class CellUIViewController: UIViewController {
 
+    var delegate: DeleteContactDelegate?
+    var delegateCancel :   CancelDelegate?
     
     
     @IBOutlet weak var Avatar: UIImageView!
@@ -19,31 +30,57 @@ class CellUIViewController: UIViewController {
     
     @IBOutlet weak var Phone: UILabel!
     
-    var ContactName: String = ""
-    var ContactPhone: String = ""
-    
+
+    var fullname : String = ""
+    var phone: String = ""
+    var indexPath  : IndexPath = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        FullName.text = ContactName
-        Phone.text = ContactPhone
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(handleEdit))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
+        
+        view.backgroundColor = .white
+        
+        FullName.text = fullname
+        Phone.text =  phone
+        
+    }
+    
+    @objc func handleEdit(){
+        if let vc = storyboard?.instantiateViewController(identifier: "EditContactViewController") as? EditContactViewController{
+            let controller = EditContactViewController()
+            controller.delegate = self
+            vc.delegate = controller.delegate
+            vc.telephone_edit = Phone.text!
+            vc.fullname_edit = FullName.text!
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @objc func handleCancel(){
+        let contact = Contact(FullName: FullName.text!, Telephone: Phone.text!)
+        delegateCancel?.cancelAndsaveChanges(contact: contact, indexPath: indexPath)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     
     @IBAction func Delete(_ sender: Any) {
-        ViewController().DeleteContact(_contact_name: ContactName)
+        let contact = Contact(FullName: fullname , Telephone: phone)
+        delegate?.deleteContact(contact: contact, indexPath: indexPath)
+        _ = navigationController?.popViewController(animated: true)
     }
     
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+extension CellUIViewController: EditContactDelegate{
+    func editContact(contact:Contact){
+        self.dismiss(animated: true){
+            self.FullName.text = contact.FullName
+            self.Phone.text = contact.Telephone
+        }
     }
-    */
-
 }

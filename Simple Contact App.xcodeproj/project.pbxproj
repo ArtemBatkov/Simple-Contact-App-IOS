@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40C0E4A86A8B9A639EDA410F /* Pods_Simple_Contact_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1353EEC8E5CC635B9B583FE4 /* Pods_Simple_Contact_App.framework */; };
 		CC085D97291E62550021A2B7 /* Fakery in Frameworks */ = {isa = PBXBuildFile; productRef = CC085D96291E62550021A2B7 /* Fakery */; };
 		CC6059BB291E2333003FFDF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6059BA291E2333003FFDF3 /* AppDelegate.swift */; };
 		CC6059BD291E2333003FFDF3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6059BC291E2333003FFDF3 /* SceneDelegate.swift */; };
@@ -15,9 +16,14 @@
 		CC6059C4291E2334003FFDF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC6059C3291E2334003FFDF3 /* Assets.xcassets */; };
 		CC6059C7291E2334003FFDF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC6059C5291E2334003FFDF3 /* LaunchScreen.storyboard */; };
 		CC77B68229326A240093C708 /* CellUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC77B68129326A240093C708 /* CellUIViewController.swift */; };
+		CC7DBBC6293766A0008E8077 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7DBBC5293766A0008E8077 /* AddContactViewController.swift */; };
+		CCA859AE293648970010572C /* EditContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA859AD293648970010572C /* EditContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1353EEC8E5CC635B9B583FE4 /* Pods_Simple_Contact_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Simple_Contact_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		186E726C229D20A10ED9A118 /* Pods-Simple Contact App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Contact App.debug.xcconfig"; path = "Target Support Files/Pods-Simple Contact App/Pods-Simple Contact App.debug.xcconfig"; sourceTree = "<group>"; };
+		77DF56904BE00FECF839CE4C /* Pods-Simple Contact App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Contact App.release.xcconfig"; path = "Target Support Files/Pods-Simple Contact App/Pods-Simple Contact App.release.xcconfig"; sourceTree = "<group>"; };
 		CC6059B7291E2333003FFDF3 /* Simple Contact App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Contact App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC6059BA291E2333003FFDF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC6059BC291E2333003FFDF3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,6 +33,8 @@
 		CC6059C6291E2334003FFDF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC6059C8291E2334003FFDF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC77B68129326A240093C708 /* CellUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellUIViewController.swift; sourceTree = "<group>"; };
+		CC7DBBC5293766A0008E8077 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
+		CCA859AD293648970010572C /* EditContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +43,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC085D97291E62550021A2B7 /* Fakery in Frameworks */,
+				40C0E4A86A8B9A639EDA410F /* Pods_Simple_Contact_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		281798067EC54736CAC228B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				186E726C229D20A10ED9A118 /* Pods-Simple Contact App.debug.xcconfig */,
+				77DF56904BE00FECF839CE4C /* Pods-Simple Contact App.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		CC6059AE291E2333003FFDF3 = {
 			isa = PBXGroup;
 			children = (
 				CC6059B9291E2333003FFDF3 /* Simple Contact App */,
 				CC6059B8291E2333003FFDF3 /* Products */,
+				281798067EC54736CAC228B4 /* Pods */,
+				F862869BCCC135F54C71F80C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,8 +89,18 @@
 				CC6059C3291E2334003FFDF3 /* Assets.xcassets */,
 				CC6059C5291E2334003FFDF3 /* LaunchScreen.storyboard */,
 				CC6059C8291E2334003FFDF3 /* Info.plist */,
+				CCA859AD293648970010572C /* EditContactViewController.swift */,
+				CC7DBBC5293766A0008E8077 /* AddContactViewController.swift */,
 			);
 			path = "Simple Contact App";
+			sourceTree = "<group>";
+		};
+		F862869BCCC135F54C71F80C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1353EEC8E5CC635B9B583FE4 /* Pods_Simple_Contact_App.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -79,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC6059CB291E2334003FFDF3 /* Build configuration list for PBXNativeTarget "Simple Contact App" */;
 			buildPhases = (
+				541145EA9D5CF0BF0A315FCC /* [CP] Check Pods Manifest.lock */,
 				CC6059B3291E2333003FFDF3 /* Sources */,
 				CC6059B4291E2333003FFDF3 /* Frameworks */,
 				CC6059B5291E2333003FFDF3 /* Resources */,
+				92333E020E85D0460CCAC8A5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,7 +153,7 @@
 			);
 			mainGroup = CC6059AE291E2333003FFDF3;
 			packageReferences = (
-				CC085D95291E62550021A2B7 /* XCRemoteSwiftPackageReference "Fakery" */,
+				CC085D95291E62550021A2B7 /* XCRemoteSwiftPackageReference "Fakery.git" */,
 			);
 			productRefGroup = CC6059B8291E2333003FFDF3 /* Products */;
 			projectDirPath = "";
@@ -144,13 +177,57 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		541145EA9D5CF0BF0A315FCC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Simple Contact App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92333E020E85D0460CCAC8A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Simple Contact App/Pods-Simple Contact App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Simple Contact App/Pods-Simple Contact App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Simple Contact App/Pods-Simple Contact App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC6059B3291E2333003FFDF3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCA859AE293648970010572C /* EditContactViewController.swift in Sources */,
 				CC6059BF291E2333003FFDF3 /* ViewController.swift in Sources */,
 				CC6059BB291E2333003FFDF3 /* AppDelegate.swift in Sources */,
+				CC7DBBC6293766A0008E8077 /* AddContactViewController.swift in Sources */,
 				CC77B68229326A240093C708 /* CellUIViewController.swift in Sources */,
 				CC6059BD291E2333003FFDF3 /* SceneDelegate.swift in Sources */,
 			);
@@ -294,6 +371,7 @@
 		};
 		CC6059CC291E2334003FFDF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 186E726C229D20A10ED9A118 /* Pods-Simple Contact App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -321,6 +399,7 @@
 		};
 		CC6059CD291E2334003FFDF3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77DF56904BE00FECF839CE4C /* Pods-Simple Contact App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -370,7 +449,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CC085D95291E62550021A2B7 /* XCRemoteSwiftPackageReference "Fakery" */ = {
+		CC085D95291E62550021A2B7 /* XCRemoteSwiftPackageReference "Fakery.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/vadymmarkov/Fakery.git";
 			requirement = {
@@ -383,7 +462,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		CC085D96291E62550021A2B7 /* Fakery */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CC085D95291E62550021A2B7 /* XCRemoteSwiftPackageReference "Fakery" */;
+			package = CC085D95291E62550021A2B7 /* XCRemoteSwiftPackageReference "Fakery.git" */;
 			productName = Fakery;
 		};
 /* End XCSwiftPackageProductDependency section */
