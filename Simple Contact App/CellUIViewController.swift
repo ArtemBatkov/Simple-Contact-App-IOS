@@ -61,14 +61,15 @@ class CellUIViewController: UIViewController {
     }
     
     @objc func handleCancel(){
-        let contact = Contact(FullName: FullName.text!, Telephone: Phone.text!)
+        let contact = Contact(_FullName: FullName.text!, _Telephone: Phone.text!)
+        
         delegateCancel?.cancelAndsaveChanges(contact: contact, indexPath: indexPath)
         _ = navigationController?.popViewController(animated: true)
     }
     
     
     @IBAction func Delete(_ sender: Any) {
-        let contact = Contact(FullName: fullname , Telephone: phone)
+        let contact = Contact(_FullName: fullname , _Telephone: phone)
         delegate?.deleteContact(contact: contact, indexPath: indexPath)
         _ = navigationController?.popViewController(animated: true)
     }
@@ -79,8 +80,8 @@ class CellUIViewController: UIViewController {
 extension CellUIViewController: EditContactDelegate{
     func editContact(contact:Contact){
         self.dismiss(animated: true){
-            self.FullName.text = contact.FullName
-            self.Phone.text = contact.Telephone
+            self.FullName.text = contact.getFullName()
+            self.Phone.text = contact.getTelephone()
         }
     }
 }

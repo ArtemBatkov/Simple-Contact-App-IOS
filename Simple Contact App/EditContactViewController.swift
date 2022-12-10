@@ -40,9 +40,18 @@ class EditContactViewController: UIViewController {
 
     @objc func handleDone(){
         guard let fullname = FullName.text, let phone = Telephone.text, (FullName.hasText && Telephone.hasText) else {
+            let msgfull = "A full name must be inserted"
+            let msgtele = "A telephone must be inserted"
+            if !FullName.hasText {Toast().showToast(vc:self,message: msgfull, font: .systemFont(ofSize: 14.0))}
+            else{Toast().showToast(vc:self, message: msgtele, font: .systemFont(ofSize: 14.0))}
             return
         }
-        let contact = Contact(FullName: fullname, Telephone: phone)
+        let set = CharacterSet(charactersIn: phone)
+        if !CharacterSet.decimalDigits.isSuperset(of: set){
+            Toast().showToast(vc: self ,message: "Phone must contain ONLY digits!", font: .systemFont(ofSize: 14.0))
+            return
+        }        
+        let contact = Contact(_FullName: fullname, _Telephone: phone)
         delegate?.editContact(contact: contact)
         _ = navigationController?.popViewController(animated: true)
     }

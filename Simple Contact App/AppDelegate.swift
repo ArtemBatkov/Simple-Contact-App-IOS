@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        
+       
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

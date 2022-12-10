@@ -194,7 +194,7 @@
                                 <rect key="frame" x="0.0" y="174.66666666666666" width="393" height="37.333333333333343"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="tel"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FuA-ta-9mW"/>
