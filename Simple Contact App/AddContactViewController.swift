@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Fakery
 
 protocol AddContactDelegate{
     func addContact(contact:Contact)
@@ -19,13 +20,11 @@ class AddContactViewController: UIViewController {
     var telephone: String = ""
     var delegateAdd: AddContactDelegate?
     
+    private let faker = Faker()
     
     @IBOutlet weak var FullName: UITextField!
     
     @IBOutlet weak var Telephone: UITextField!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +47,8 @@ class AddContactViewController: UIViewController {
             Toast().showToast(vc: self ,message: "Phone must contain ONLY digits!", font: .systemFont(ofSize: 14.0))
             return
         }
+        
+        
         let contact = Contact(_FullName: fullname, _Telephone: telephone)
         delegateAdd?.addContact(contact: contact)
         _ = navigationController?.popViewController(animated: true)

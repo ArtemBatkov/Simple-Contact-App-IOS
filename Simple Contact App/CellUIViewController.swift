@@ -21,12 +21,9 @@ class CellUIViewController: UIViewController {
     var delegate: DeleteContactDelegate?
     var delegateCancel :   CancelDelegate?
     
-    
-    @IBOutlet weak var Avatar: UIImageView!
-    
+    @IBOutlet weak var DeleteButton: UIButton!
     
     @IBOutlet weak var FullName: UILabel!
-    
     
     @IBOutlet weak var Phone: UILabel!
     
@@ -37,7 +34,6 @@ class CellUIViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(handleEdit))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
@@ -47,6 +43,12 @@ class CellUIViewController: UIViewController {
         FullName.text = fullname
         Phone.text =  phone
         
+        DeleteButton.layer.cornerRadius = 5
+        DeleteButton.layer.borderWidth = 1
+        Phone.layer.cornerRadius = 5
+        Phone.layer.borderWidth = 1
+        FullName.layer.cornerRadius = 5
+        FullName.layer.borderWidth = 1        
     }
     
     @objc func handleEdit(){

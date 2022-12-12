@@ -8,7 +8,7 @@
 //I want a new comment to BE SURE that's everything works for me
 
 import UIKit
-import Fakery
+
 
 
 class ViewController: UIViewController {
@@ -22,19 +22,6 @@ class ViewController: UIViewController {
     }()
     
     var contactListObject = ContactList()
-   
-    
-    //Contains contacts' names
-    var names = [String]()
-    let faker: Faker = Faker()
-    
-    //Contains section title
-    var sectionTitle = [String]()
-    
-    //Contains key and contact array
-    var ContactsDict = [String: [String]]()
-    
-    var PhoneNumbers = [String]()
     
     var completionHandler: (([String: [String]]) -> Void)?
     
@@ -43,35 +30,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        // some data
-        
-        //call fake data contacts -- start
-        //        InitializeContacts()
-        //call fake data contacts -- end
-        
-        //tableview initialization -- start
         tableView.delegate = self
         tableView.dataSource = self
-        //tableview initialization -- end
-        
-        //sectionTitle -- start
-        //        sectionTitle = Array(Set(names.compactMap({String($0.prefix(1))})))
-        //        sectionTitle.sort()
-        //        sectionTitle.forEach({ContactsDict[$0] = [String]()})//it will create blank array
-        //        names.forEach({ContactsDict[String($0.prefix(1))]?.append($0)})
-        //sectionTitle -- end
-        
-        
-        //hardcoding -- start
-        //        contacts.append(Contact(FullName: "Artem Slonko", Telephone: "12345678"))
-        //        contacts.append(Contact(FullName: "Vasya ysa", Telephone: "000000000"))
-        //        contacts.append(Contact(FullName: "Gosha dudar", Telephone: "90909022222"))
-        //hardcoding -- end
-        
-        //Upload from archive
-        //get infro from disk
-        
         do{
             let data = try Data(contentsOf: contactURL)
             contactListObject.LoadContacts(_loadedContacts: try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [Contact])
@@ -89,22 +49,6 @@ class ViewController: UIViewController {
             print("was not ebale to archive due to this error: \(e)")
         }
     }
-    
-
-
-   
-    
-
-//    func DeleteContact(_contact_name: String, _indexPath:IndexPath){
-//        let first_letter = String(_contact_name.prefix(1))
-//        ContactsDict.removeValue(forKey: first_letter)
-//        if(tableView != nil){
-//            tableView.deleteRows(at: [_indexPath], with: .fade)
-//            tableView.reloadData()
-//        }
-//    }
-    
-    
     
     @IBAction func AddContactButton(_ sender: UIBarButtonItem) {
         
@@ -160,9 +104,6 @@ extension ViewController: UITableViewDelegate{
 
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //say how much rows you need to show
-        //add something new
-//        ContactsDict[sectionTitle[section]]?.count ?? 0
         return contactListObject.getContactList().count
     }
     

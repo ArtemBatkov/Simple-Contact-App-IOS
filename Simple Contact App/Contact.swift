@@ -10,6 +10,7 @@ import Foundation
 class  Contact : NSObject, NSCoding{
     private var FullName: String = ""
     private var Telephone: String = ""
+     
     
     init(_FullName:String,_Telephone:String) {
         self.FullName = _FullName

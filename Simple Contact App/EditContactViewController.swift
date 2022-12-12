@@ -32,9 +32,7 @@ class EditContactViewController: UIViewController {
        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDone))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
-        
-        view.backgroundColor = .white
-        
+        view.backgroundColor = .white        
     }
     
 
