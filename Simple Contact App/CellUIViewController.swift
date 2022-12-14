@@ -23,13 +23,21 @@ class CellUIViewController: UIViewController {
     
     @IBOutlet weak var DeleteButton: UIButton!
     
-    @IBOutlet weak var FullName: UILabel!
+    @IBOutlet weak var Name: UILabel!
+    
+    @IBOutlet weak var Surname: UILabel!
     
     @IBOutlet weak var Phone: UILabel!
     
-
-    var fullname : String = ""
+    @IBOutlet weak var BirthDate: UILabel!
+    
+    @IBOutlet weak var Description: UILabel!
+    
+    var name : String = ""
+    var surname = ""
     var phone: String = ""
+    var birthdate = ""
+    var description_: String = ""
     var indexPath  : IndexPath = []
     
     override func viewDidLoad() {
@@ -40,15 +48,23 @@ class CellUIViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        FullName.text = fullname
+        Name.text = name
+        Surname.text = surname
         Phone.text =  phone
+        Description.text = description_
+        if(birthdate.isEmpty){
+            birthdate = "-"
+        }
+        BirthDate.text = "Birthday date: \(birthdate)"
         
         DeleteButton.layer.cornerRadius = 5
         DeleteButton.layer.borderWidth = 1
         Phone.layer.cornerRadius = 5
-        Phone.layer.borderWidth = 1
-        FullName.layer.cornerRadius = 5
-        FullName.layer.borderWidth = 1        
+        
+        Name.layer.cornerRadius = 5
+        Surname.layer.cornerRadius = 5
+        BirthDate.layer.cornerRadius = 5
+        Description.layer.cornerRadius = 5
     }
     
     @objc func handleEdit(){
@@ -57,13 +73,22 @@ class CellUIViewController: UIViewController {
             controller.delegate = self
             vc.delegate = controller.delegate
             vc.telephone_edit = Phone.text!
-            vc.fullname_edit = FullName.text!
+            vc.name_edit = Name.text!
+            vc.surname_edit = Surname.text!
+            vc.description_edit = Description.text!
+            if(birthdate != "-"){
+                vc.birthdate_edit = birthdate
+            }            
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
     @objc func handleCancel(){
-        let contact = Contact(_FullName: FullName.text!, _Telephone: Phone.text!)
+        var birthdate_string = BirthDate.text!.components(separatedBy: " ").last!
+        if(birthdate_string=="-") {birthdate_string =  ""}
+        
+        let contact = Contact(_Name: Name.text!, _Surname: Surname.text!,_Telephone: Phone.text!,
+                              _BirthDate: birthdate_string, _Description: Description.text!)
         
         delegateCancel?.cancelAndsaveChanges(contact: contact, indexPath: indexPath)
         _ = navigationController?.popViewController(animated: true)
@@ -71,7 +96,10 @@ class CellUIViewController: UIViewController {
     
     
     @IBAction func Delete(_ sender: Any) {
-        let contact = Contact(_FullName: fullname , _Telephone: phone)
+        var birth_string = BirthDate.text!.components(separatedBy: " ").last!
+        if(birth_string=="-") {birth_string =  ""}
+        let contact = Contact(_Name: Name.text!, _Surname: Surname.text!,_Telephone: Phone.text!,
+                              _BirthDate: birth_string, _Description: Description.text!)
         delegate?.deleteContact(contact: contact, indexPath: indexPath)
         _ = navigationController?.popViewController(animated: true)
     }
@@ -82,8 +110,11 @@ class CellUIViewController: UIViewController {
 extension CellUIViewController: EditContactDelegate{
     func editContact(contact:Contact){
         self.dismiss(animated: true){
-            self.FullName.text = contact.getFullName()
+            self.Name.text = contact.getName()
             self.Phone.text = contact.getTelephone()
+            self.Surname.text = contact.getSurname()
+            self.Description.text = contact.getDescription()
+            self.BirthDate.text = "Birthday date: \(contact.getBirthDate())"
         }
     }
 }
