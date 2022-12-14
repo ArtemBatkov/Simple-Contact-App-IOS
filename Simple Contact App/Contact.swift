@@ -44,6 +44,8 @@ class  Contact : NSObject, NSCoding{
         coder.encode(self.Description, forKey: "Description")
     }
     
+    //IMPORTAN! If you have exceptions here you have to reinstall the app from your emulator!
+    //reason: the model was expanded
     required init?(coder: NSCoder) {
         self.Name = coder.decodeObject(forKey: "Name") as! String
         self.Surname = coder.decodeObject(forKey: "Surname") as! String
